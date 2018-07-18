@@ -23,7 +23,13 @@ let () = {
 type coordinate = (int, int);
 
 /* TODO */
-let add = (coord1, coord2) => failwith("For you to implement");
+let add = (coord1, coord2) => {
+  let (coord1x, coord1y) = coord1;
+  let (coord2x, coord2y) = coord2;
+  let newX = coord1x + coord2x;
+  let newY = coord1y + coord2y;
+  (newX, newY)
+};
 
 /* Now consider a name type containing strings representing first and last name. */
 type name = (string, string);
@@ -59,11 +65,17 @@ let nestedCharPair: pair(pair(char)) = (('a', 'b'), ('c', 'd'));
 /* Write functions to extract the first and second elements from a pair. */
 /* let first: pair('a) => 'a */
 /* TODO */
-let first = pair => failwith("For you to implement");
+let first = pair => {
+  let (x, _) = pair;
+  x;
+};
 
 /* let second: pair('a) => 'a */
 /* TODO */
-let second = pair => failwith("For you to implement");
+let second = pair => {
+  let (_, y) = pair;
+  y;
+};
 
 Test.runAll([
   (add((1, 2), (3, 4)) == (4, 6), "add"),

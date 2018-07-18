@@ -61,6 +61,9 @@ module Fraction: {
     TODO: Add signatures for the create and value functions to expose them in
     the Fraction module.
    */
+  let create: (~numerator: int, ~denominator: int) => t;
+  let value: t => float;
+
 } = {
   type t = (int, int);
   let create = (~numerator, ~denominator) => (numerator, denominator);
@@ -68,7 +71,7 @@ module Fraction: {
     float_of_int(numerator) /. float_of_int(denominator);
 };
 /* TODO: After adding signatures above uncomment the tests below */
-/* Test.runAll([
+Test.runAll([
      (
        Fraction.value(Fraction.create(~numerator=5, ~denominator=2)) == 2.5,
        "Fraction.value",
@@ -77,4 +80,4 @@ module Fraction: {
        Fraction.value(Fraction.create(~numerator=4, ~denominator=10)) == 0.4,
        "Fraction.value",
      ),
-   ]); */
+   ]);

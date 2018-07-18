@@ -35,7 +35,13 @@ let setColor = (stoplight, color) => stoplight.color = color;
   Red, and Red to Green, we can just write a function to advance the color
   of the light without taking an input color.
  */
-let advanceColor = stoplight => failwith("For you to implement");
+let advanceColor = stoplight => {
+  switch (stoplight.color) {
+  | Green => stoplight.color = Yellow
+  | Yellow => stoplight.color = Red
+  | Red => stoplight.color = Green
+  };
+};
 
 module ForTesting = {
   let test_ex_red: stoplight = {location: "", color: Red};

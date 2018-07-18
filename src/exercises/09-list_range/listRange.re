@@ -16,7 +16,16 @@ let () = {
 
   let range: (int, int) => list(int)
  */
-let range = (from, to_) => failwith("For you to implement");
+let range = (from, to_) => {
+  let rec addNext = (from, to_) =>
+    if (to_ === from) {
+      []
+    } else {
+      List.append([from], addNext(from + 1, to_))
+    };
+
+  addNext(from, to_)
+};
 
 Test.runAll([
   (range(1, 4) == [1, 2, 3], "range"),
